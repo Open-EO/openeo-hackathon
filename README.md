@@ -10,11 +10,11 @@ The Hackathon is an 1,5-day event. At the afternoon of the second day, a *User R
 | Time          | Event                                                        |
 | ------------- | ------------------------------------------------------------ |
 | 09:00 - 10:00 | Registration                                                 |
-| 10:00 - 10:30 | Introduction to openEO                                       |
-| 10:30 - 10:45 | Procedure of the Hackathon / Suggestions for ideas           |
-| 10:45 - 12:00 | Form Teams and develop ideas                                 |
-| 12:00 - 13:00 | Lunch                                                        |
-| 13:00 - 17:00 | [Test Cases](test-cases/README.md) and [Hacking](hacking/README.md) |
+| 10:00 - 10:30 | Welcome and Introduction to openEO                           |
+| 10:30 - 12:00 | [Test Cases](test-cases/README.md)                           |
+| 12:00 - 12:45 | Lunch                                                        |
+| 12:45 - 13:00 | Form Teams                                                   |
+| 13:00 - 17:00 | [Hacking](hacking/README.md)                                 |
 | 17:00 - 17:30 | Day 1 Wrap-Up                                                |
 | 17:30 - 18:00 | Presentation of Findings from openEO User Requirements Survey |
 | 18:00 - open  | Snacks, Drinks & Networking                                  |
