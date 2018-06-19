@@ -1,23 +1,17 @@
 # Test Cases
-To get a first insight in the setup and use of openEO, we start with some test cases. The test cases are mostly covering the basic functionality of the client libraries ([Python](https://github.com/Open-EO/openeo-python-client), [R](https://github.com/Open-EO/openeo-r-client)) and the [API](https://github.com/Open-EO/openeo-api). You can work on the test cases with the their own computers and with your preferred IDE/Editor.
-
-We are using two back-ends to perform these tasks:
-
-* [openEO Earth Engine back-end](https://github.com/Open-EO/openeo-earthengine-driver)
-  - URL: http://giv-project8.uni-muenster.de
-  - Credentials: Username is `groupX`  with X being the group number and password `test123`
-* [openEO GeoPyspark back-end](https://github.com/Open-EO/openeo-geopyspark-driver)
-  * URL: http://openeo.vgt.vito.be/openeo
-  * Credentials: none
+To get a first insight in the setup and use of openEO, we start with some test cases. The test cases are mostly covering the basic functionality of the client libraries ([Python](https://github.com/Open-EO/openeo-python-client), [R](https://github.com/Open-EO/openeo-r-client)) and the [API](https://github.com/Open-EO/openeo-api). You can work on the test cases with the their own computers and with your preferred IDE/Editor. We are using two back-ends to perform these tasks.
 
 ## Task 1
 
-Please install one of the openEO clients:
+Please install the openEO client of your choice:
 
 * [Python client](https://github.com/Open-EO/openeo-python-client)
 * [R client](https://github.com/Open-EO/openeo-r-client)
 
-Make sure that the client is properly working by connecting to one of the back-ends and requesting the capabilities that are provided by the back-end.
+Make sure that the client is properly working by connecting to the [openEO Earth Engine back-end](https://github.com/Open-EO/openeo-earthengine-driver) and requesting the capabilities that are provided by the back-end.
+
+- URL: http://giv-project8.uni-muenster.de
+- Credentials: Username is `groupX`  with X being the group number and password `test123`
 
 ## Task 2
 
@@ -46,7 +40,14 @@ You want to perform a batch processing and afterwards download the results as JS
 
 *This task is currently only supported by the Python client and the openEO GeoPyspark back-end. If you are not familiar with Python feel free to skip this task.*
 
-First of all, you want to find out which Sentinel-2 data is available at the back-end, as well as if the back-end provides User-Defined-Functions (UDFs). You want to run the provided Python script on each time series of the dataset. The extents are defined by: 
+Make sure that the Python client is properly working by connecting to the [openEO GeoPyspark back-end](https://github.com/Open-EO/openeo-geopyspark-driver) and requesting the capabilities that are provided by the back-end.
+
+[](https://github.com/Open-EO/openeo-geopyspark-driver)
+
+- URL: http://openeo.vgt.vito.be/openeo
+- Credentials: none
+
+You want to find out which Sentinel-2 data is available at the back-end, as well as if the back-end provides User-Defined-Functions (UDFs). You want to run the provided Python script on each time series of the dataset. The extents are defined by: 
 
 - bounding box (left: 16.138916, top: 48.320647, right: 16.524124, bottom: 48.138600, EPSG:4326)
 - temporal extent (01.01.2018 – 31.01.2018)
