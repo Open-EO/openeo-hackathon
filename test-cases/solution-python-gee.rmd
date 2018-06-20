@@ -110,7 +110,7 @@ timeseries = s2a_prd_msil1c.bbox_filter(left=bbox["left"], right=bbox["right"], 
 timeseries = timeseries.date_range_filter(time["start"], time["end"])
 timeseries = timeseries.ndvi(ndvi["red"], ndvi["nir"])
 timeseries = timeseries.min_time()
-timeseries = timeseries.strech_colors(stretch["min"], stretch["max"])
+timeseries = timeseries.stretch_colors(stretch["min"], stretch["max"])
 
 # Send Job to back end.
 job = timeseries.send_job(out_format=out_format)
