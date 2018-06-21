@@ -108,7 +108,7 @@ Uploading the GeoJSON file containing the poylgon:
 # con %>% uploadUserData(content="polygon.json",target="polygon.json",encode="raw",mime="application/octet-stream")
 ```
 
-Construct and execute the process graph. Downloads the file in JSON format with the file name `task5.json`:
+Construct and execute the process graph. Downloads the file in JSON format with the file name `task4.json`:
 ```{r}
 # Currently not supported by the back-end
 # task5 = collection(sentinel2,id_name = "product_id") %>% 
@@ -117,7 +117,7 @@ Construct and execute the process graph. Downloads the file in JSON format with 
 #   pgb$filter_bands(bands = "B8") %>%
 #   pgb$zonal_statistics(regions = "polygon.json", func = "mean")
 
-# con %>% executeTask(task=task5, format="JSON", output_file = "task5.json")
+# con %>% executeTask(task=task5, format="JSON", output_file = "task4.json")
 ```
 
 ## Task 5

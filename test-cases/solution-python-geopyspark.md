@@ -14,11 +14,11 @@ pip install -r requirements-dev.txt
 pip install --user -e .
 ```
 
-Connecting to the openEO Earth Engine back-end. You may need to change the credentials:
+Connecting to the openEO GeoPyspark back-end:
 ```{python}
 import openeo
 endpoint = "http://openeo.vgt.vito.be/openeo"
-session = openeo.session(username, endpoint=endpoint)
+session = openeo.session("me", endpoint=endpoint)
 ```
 
 Requesting the capabilities that are provided by the back-end:
@@ -59,22 +59,20 @@ session.get_outputformats()
 
 Only PNG files are supported and therefore we need to apply color stretching.
 
-To create a 
-
 For the construction of the process graph we need the following steps:
 
 1. Construct the process graph builder
-2. Specify the required dataset (`COPERNICUS/S2`)
+2. Specify the required dataset (`CGS_SENTINEL2_RADIOMETRY_V101`)
 3. Filtering by date range
 4. Filtering by bounding box
 5. Calculating the NDVI on the red band B4 and the near-infrared band B8
 6. Computing a minimum time composite
 7. Strecthing the colors
-8. Executing the process graph on the back-end, requesting a PNG file with the name `task3.png`
+8. Executing the process graph on the back-end, requesting a PNG file
 
 We define the parameters:
 ```{python}
-product = "COPERNICUS/S2"
+product = "CGS_SENTINEL2_RADIOMETRY_V101"
 bbox = {
     "left": 16.138916, 
     "top": 48.320647, 
@@ -98,7 +96,7 @@ out_format = "png"
 ```
 We are building the process graph as follows:
 ```{python}
-product = "COPERNICUS/S2"
+product = "CGS_SENTINEL2_RADIOMETRY_V101"
 
 s2a_prd_msil1c = session.image(product)
 timeseries = s2a_prd_msil1c.bbox_filter(left=bbox["left"], right=bbox["right"], top=bbox["top"], bottom=bbox["bottom"], srs=bbox["srs"])
@@ -143,7 +141,7 @@ Uploading the GeoJSON file containing the poylgon:
 session.user_upload_file(polygon_dir)
 ```
 
-Construct and execute the process graph. Downloads the file in JSON format with the file name `task5.json`:
+Construct and execute the process graph. Downloads the file in JSON format with the file name `task_4.json`:
 ```{python}
 s2a_prd_msil1c = session.image(product)
 timeseries = s2a_prd_msil1c.date_range_filter(time["start"], time["end"])
@@ -153,7 +151,7 @@ timeseries = timeseries.zonal_statistics(regions=zonal_statistics["regions"], fu
 
 job = timeseries.send_job(out_format=out_format)
 
-out_file = "task_5.json"
+out_file = "task_4.json"
 job.download(out_file)
 ```
 

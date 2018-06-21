@@ -59,4 +59,4 @@ You want to download the results as GeoTiff.
 * [R client / GEE back-end](solution-r-gee.rmd)
 * [R client / GeoPyspark back-end](solution-r-geopyspark.rmd)
 * [Python client / GEE back-end](solution-python-gee.md)
-* [Python client / GGeoPysparkEE back-end](solution-python-geopyspark.md)
+* [Python client / GeoPyspark back-end](solution-python-geopyspark.md)

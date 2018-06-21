@@ -64,8 +64,6 @@ session.get_outputformats()
 
 Only PNG files are supported and therefore we need to apply color stretching.
 
-To create a 
-
 For the construction of the process graph we need the following steps:
 
 1. Construct the process graph builder
@@ -148,7 +146,7 @@ Uploading the GeoJSON file containing the poylgon:
 session.user_upload_file(polygon_dir)
 ```
 
-Construct and execute the process graph. Downloads the file in JSON format with the file name `task5.json`:
+Construct and execute the process graph. Downloads the file in JSON format with the file name `task_4.json`:
 ```{python}
 s2a_prd_msil1c = session.image(product)
 timeseries = s2a_prd_msil1c.date_range_filter(time["start"], time["end"])
@@ -158,7 +156,7 @@ timeseries = timeseries.zonal_statistics(regions=zonal_statistics["regions"], fu
 
 job = timeseries.send_job(out_format=out_format)
 
-out_file = "task_5.json"
+out_file = "task_4.json"
 job.download(out_file)
 ```
 
