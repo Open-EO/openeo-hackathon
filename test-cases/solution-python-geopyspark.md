@@ -1,4 +1,4 @@
-# openEO Hackathon - Solution R client / GEE back-end
+# openEO Hackathon - Solution Python client / GeoPyspark back-end
 
 ## Task 1
 * Prerequisites: Python 3.5, pip 
@@ -68,7 +68,7 @@ For the construction of the process graph we need the following steps:
 5. Calculating the NDVI on the red band B4 and the near-infrared band B8
 6. Computing a minimum time composite
 7. Strecthing the colors
-8. Executing the process graph on the back-end, requesting a PNG file
+8. Executing the process graph on the back-end, requesting a PNG file with the name `task_3_out.png`
 
 We define the parameters:
 ```{python}

@@ -1,4 +1,4 @@
-# openEO Hackathon - Solution R client / GEE back-end
+# openEO Hackathon - Solution Python client / GEE back-end
 
 ## Task 1
 * Prerequisites: Python 3.5, pip 
@@ -50,7 +50,7 @@ session.list_collections()
 
 Requesting information about the Sentinel-2 dataset, including the temporal and spatial extent:
 ```{python}
-collection = session.get_collection("AU/GA/AUSTRALIA_5M_DEM")
+collection = session.get_collection("COPERNICUS/S2")
 collection["extent"]
 collection["time"]
 ```
@@ -73,7 +73,7 @@ For the construction of the process graph we need the following steps:
 5. Calculating the NDVI on the red band B4 and the near-infrared band B8
 6. Computing a minimum time composite
 7. Strecthing the colors
-8. Executing the process graph on the back-end, requesting a PNG file with the name `task3.png`
+8. Executing the process graph on the back-end, requesting a PNG file with the name `task_3_out.png`
 
 We define the parameters:
 ```{python}
