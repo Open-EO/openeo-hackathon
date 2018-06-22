@@ -93,13 +93,13 @@ Checking if the process `zonal_statistics` is provided by the back-end:
 con %>% describeProcess("zonal_statistics")
 ```
 
-If you haven't done so yet, download the GeoJSON file containing the poylgon:
+If you haven't done so yet, download the GeoJSON file containing the polygon:
 ```{r}
 polygonURL = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/polygon.json"
 download.file(polygonURL, "polygon.json", quiet=TRUE)
 ```
 
-Uploading the GeoJSON file containing the poylgon:
+Uploading the GeoJSON file containing the polygon:
 ```{r}
 con %>% uploadUserData(content="polygon.json",target="polygon.json",encode="raw",mime="application/octet-stream")
 ```
