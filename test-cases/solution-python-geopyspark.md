@@ -44,10 +44,6 @@ import json
 with open("polygon.json","r") as f:
     polygon = asShape(json.load(f))
 
-import openeo
-endpoint = "http://openeo.vgt.vito.be/openeo"
-session = openeo.session("me", endpoint=endpoint)
-
 image_collection = session \
     .imagecollection('PROBAV_L3_S10_TOC_NDVI_333M') \
     .date_range_filter(start_date="2017-11-01", end_date="2017-11-30")
