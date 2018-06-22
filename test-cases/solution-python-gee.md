@@ -101,8 +101,6 @@ out_format = "png"
 ```
 We are building the process graph as follows:
 ```{python}
-product = "COPERNICUS/S2"
-
 s2a_prd_msil1c = session.image(product)
 timeseries = s2a_prd_msil1c.bbox_filter(left=bbox["left"], right=bbox["right"], top=bbox["top"], bottom=bbox["bottom"], srs=bbox["srs"])
 timeseries = timeseries.date_range_filter(time["start"], time["end"])
@@ -124,26 +122,11 @@ Checking if the process `zonal_statistics` is provided by the back-end:
 session.get_process('zonal_statistics')
 ```
 
-If you haven't done so yet, download the GeoJSON file containing the poylgon:
-```{python}
-polygon_dir = "polygon.json"
-polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
-with open(polygon_dir, 'wb') as handle:
-    response = requests.get(polygon_url, stream=True)
-    
-    if not response.ok:
-        print (response)
-
-    for block in response.iter_content(1024):
-
-        if not block:
-            break
-        handle.write(block)
-```
+If you haven't done so yet, download [the GeoJSON file containing the poylgon](task-4/polygon.json) into the working directory of the Python client:
 
 Uploading the GeoJSON file containing the poylgon:
 ```{python}
-session.user_upload_file(polygon_dir)
+session.user_upload_file("polygon.json")
 ```
 
 Construct and execute the process graph. Downloads the file in JSON format with the file name `task_4.json`:
