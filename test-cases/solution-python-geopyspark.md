@@ -38,7 +38,7 @@ If you haven't done so yet, download the GeoJSON file containing the polygon:
 ```{python}
 import requests
 polygon_dir = "polygon.json"
-polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
+polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/polygon.json"
 with open(polygon_dir, 'wb') as handle:
   response = requests.get(polygon_url, stream=True)
   if not response.ok:
