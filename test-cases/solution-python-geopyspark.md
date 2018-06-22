@@ -1,7 +1,7 @@
 # openEO Hackathon - Solution Python client / GeoPyspark back-end
 
-## Task 1
-* Prerequisites: Python 3.5, pip 
+## Task 5
+* Prerequisites: Python 3.5, pip
 * Clone/Download: [openeo-python-client](https://github.com/Open-EO/openeo-python-client)
 * Hint: Use [anaconda](https://anaconda.org/anaconda/python) for python versioning
 * Recommendation: Use Linux based operating system.
@@ -26,122 +26,33 @@ Requesting the capabilities that are provided by the back-end:
 session.list_capabilities()
 ```
 
-## Task 2
-
 Requesting the processes offered by the back-end:
 ```{python}
 session.get_all_processes()
-```
-
-Requesting the arguments required for the ndvi process:
-```{python}
-session.get_process('NDVI')
 ```
 
 Requesting the products offered by the back-end:
 ```{python}
 session.list_collections()
 ```
+There is Sentinel-2 data called `CGS_SENTINEL2_RADIOMETRY_V101`.
 
-Requesting information about the Sentinel-2 dataset, including the temporal and spatial extent:
-```{python}
-collection = session.get_collection("CGS_SENTINEL2_RADIOMETRY_V101")
-collection["extent"]
-collection["time"]
-```
-
-## Task 3
-
-First of all, requesting the supported file formats to see whether PNG or GeoTiff (GTiff) is supported and color stretching is required for PNG files or not:
+Requesting the supported file formats to see whether GeoTiff (GTiff) or not:
 ```{python}
 session.get_outputformats()
 ```
+GTiff is supported.
 
-Only Geotiff files are supported.
-
-For the construction of the process graph we need the following steps:
-
-1. Construct the process graph builder
-2. Specify the required dataset (`CGS_SENTINEL2_RADIOMETRY_V101`)
-3. Filtering by date range
-4. Filtering by bounding box
-5. Calculating the NDVI on the red band B4 and the near-infrared band B8
-6. Computing a minimum time composite
-7. Strecthing the colors
-8. Executing the process graph on the back-end, requesting a PNG file with the name `task_3_out.png`
-
-We define the parameters:
-```{python}
-product = "CGS_SENTINEL2_RADIOMETRY_V101"
-bbox = {
-    "left": 16.138916, 
-    "top": 48.320647, 
-    "right": 16.524124, 
-    "bottom": 48.138600, 
-    "srs": "EPSG:4326"
-}
-time = {
-    "start": "2018-01-01",
-    "end": "2018-01-31"
-}
-ndvi = {
-    "red": "B4",
-    "nir": "B8"
-}
-stretch = {
-    "min": -1,
-    "max": 1
-}
-out_format = "GTIFF"
-```
-We are building the process graph as follows:
+We are building the process graph and downloading the file to disk:
 ```{python}
 dir = os.path.dirname(openeo_udf.functions.__file__)
 file_name = os.path.join(dir, "raster_collections_ndvi.py")
-out_file = "task_3_out.geotiff"
 with open(file_name, "r")  as f:
     udf_code = f.read()
-    image_collection = session.image(product) \
-                .date_range_filter(start_date=time["start"], end_date=time["end"]) \
-                .bbox_filter(left=bbox["left"],right=bbox["right"],bottom=bbox["bottom"],top=bbox["top"],srs=bbox["srs"]) \
+    image_collection = session.image("CGS_SENTINEL2_RADIOMETRY_V101") \
+                .date_range_filter(start_date="2018-01-01", end_date="2018-01-31") \
+                .bbox_filter(left = 16.138916, right = 16.524124, bottom = 48.138600, top = 48.320647, srs = "EPSG:4326") \
                 .apply_tiles(udf_code) \
                 .min_time() \
-                .download(out_file,out_format)
+                .download("task_3_out.geotiff", "GTIFF")
 ```
-
-## Task 4
-
-If you haven't done so yet, download the GeoJSON file containing the poylgon:
-```{python}
-polygon_dir = "polygon.json"
-polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
-with open(polygon_dir, 'wb') as handle:
-    response = requests.get(polygon_url, stream=True)
-    
-    if not response.ok:
-        print (response)
-
-    for block in response.iter_content(1024):
-
-        if not block:
-            break
-        handle.write(block)
-```
-
-Construct and execute the process graph. Downloads the file in JSON format with the file name `task_4.json`:
-```{python}
-s2a_prd_msil1c = session.image(product)
-timeseries = s2a_prd_msil1c.date_range_filter(time["start"], time["end"])
-timeseries = timeseries.bbox_filter(left=bbox["left"], right=bbox["right"], top=bbox["top"], bottom=bbox["bottom"], srs=bbox["srs"])
-timeseries = timeseries.band_filter(bands)
-timeseries = timeseries.zonal_statistics(regions=zonal_statistics["regions"], func=zonal_statistics["func"])
-
-job = timeseries.send_job(out_format=out_format)
-
-out_file = "task_4.json"
-job.download(out_file)
-```
-
-## Task 5
-
-TBD
