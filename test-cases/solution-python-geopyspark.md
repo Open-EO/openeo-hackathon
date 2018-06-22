@@ -34,7 +34,7 @@ session.get_all_processes()
 
 ## Task 4
 
-If you haven't done so yet, download the GeoJSON file containing the poylgon into the working directory of the Python client.
+If you haven't done so yet, download [the GeoJSON file containing the polygon](polygon.json) into the working directory of the Python client.
 
 Construct and execute the process graph. The execute call is synchronous, so it computes the time series on the fly:
 ```{python}
