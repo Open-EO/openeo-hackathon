@@ -45,7 +45,7 @@ session.list_collections()
 
 Requesting information about the Sentinel-2 dataset, including the temporal and spatial extent:
 ```{python}
-collection = session.get_collection("AU/GA/AUSTRALIA_5M_DEM")
+collection = session.get_collection("CGS_SENTINEL2_RADIOMETRY_V101")
 collection["extent"]
 collection["time"]
 ```
@@ -57,7 +57,7 @@ First of all, requesting the supported file formats to see whether PNG or GeoTif
 session.get_outputformats()
 ```
 
-Only PNG files are supported and therefore we need to apply color stretching.
+Only Geotiff files are supported.
 
 For the construction of the process graph we need the following steps:
 
@@ -92,7 +92,7 @@ stretch = {
     "min": -1,
     "max": 1
 }
-out_format = "png"
+out_format = "GTIFF"
 ```
 We are building the process graph as follows:
 ```{python}
