@@ -34,20 +34,7 @@ session.get_all_processes()
 
 ## Task 4
 
-If you haven't done so yet, download the GeoJSON file containing the polygon:
-```{python}
-import requests
-polygon_dir = "polygon.json"
-polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/polygon.json"
-with open(polygon_dir, 'wb') as handle:
-  response = requests.get(polygon_url, stream=True)
-  if not response.ok:
-    print (response)
-  for block in response.iter_content(1024):
-    if not block:
-      break
-    handle.write(block)
-```
+If you haven't done so yet, download the GeoJSON file containing the poylgon into the working directory of the Python client.
 
 Construct and execute the process graph. The execute call is synchronous, so it computes the time series on the fly:
 ```{python}
@@ -70,6 +57,7 @@ timeseries = image_collection.zonal_statistics(polygon,'mean').execute()
 
 ## Task 5
 
+If you haven't done so yet, download [the UDF file containing Python code to calculate the NDVI](raster_collections_ndvi.py) to the working directory of the Python client.
 
 Requesting the products offered by the back-end:
 ```{python}
@@ -85,10 +73,7 @@ GTiff is supported.
 
 We are building the process graph and downloading the file to disk:
 ```{python}
-import os
-dir = os.path.dirname(openeo_udf.functions.__file__)
-file_name = os.path.join(dir, "raster_collections_ndvi.py")
-with open(file_name, "r")  as f:
+with open("raster_collections_ndvi.py", "r")  as f:
     udf_code = f.read()
     image_collection = session.image("CGS_SENTINEL2_RADIOMETRY_V101") \
                 .date_range_filter(start_date="2018-01-01", end_date="2018-01-31") \
