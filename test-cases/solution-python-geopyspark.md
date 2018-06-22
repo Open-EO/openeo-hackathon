@@ -27,9 +27,33 @@ Requesting the capabilities that are provided by the back-end:
 session.list_capabilities()
 ```
 
+Requesting the supported file formats to see whether GeoTiff (GTiff) or not:
+```{python}
+session.get_outputformats()
+```
+
+## Task 2
+
 Requesting the processes offered by the back-end:
 ```{python}
 session.get_all_processes()
+```
+
+Requesting the arguments required for the ndvi process is **currently not supported** by the GeoPyspark back-end, but the call would be:
+```{python}
+# session.get_process('NDVI')
+```
+
+Requesting the products offered by the back-end:
+```{python}
+session.list_collections()
+```
+
+Requesting information about the Sentinel-2 dataset, including the temporal and spatial extent, is **currently not supported** by the GeoPyspark back-end, but the calls would be:
+```{python}
+# collection = session.get_collection("COPERNICUS/S2")
+# collection["extent"]
+# collection["time"]
 ```
 
 ## Task 4
@@ -53,23 +77,13 @@ timeseries = image_collection.zonal_statistics(polygon,'mean').execute()
 
 ## Task 5
 
-If you haven't done so yet, download [the UDF file containing Python code to calculate the NDVI](raster_collections_ndvi.py) to the working directory of the Python client: https://raw.githubusercontent.com/Open-EO/openeo-udf/master/src/openeo_udf/functions/raster_collections_ndvi.py
+If you haven't done so yet, download [the UDF file containing Python code to calculate the NDVI](raster_collections_ndvi.py) to the working directory of the Python client.
 
-Requesting the products offered by the back-end:
-```{python}
-session.list_collections()
-```
-There is Sentinel-2 data called `CGS_SENTINEL2_RADIOMETRY_V101`.
+Connect to the back-end as described in task 1. Request information about available products and processes as shown in task 2.
 
-Requesting the supported file formats to see whether GeoTiff (GTiff) or not:
+After connecting to the back-end, we are building the process graph and downloading the file to disk:
 ```{python}
-session.get_outputformats()
-```
-GTiff is supported.
-
-We are building the process graph and downloading the file to disk:
-```{python}
- bbox = {
+bbox = {
     "left": 6.8371137,
     "top": 50.5647147,
     "right": 6.8566699,

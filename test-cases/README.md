@@ -42,17 +42,15 @@ You want to perform a batch processing and afterwards download the results as JS
 
 Make sure that the Python client is properly working by connecting to the [openEO GeoPyspark back-end](https://github.com/Open-EO/openeo-geopyspark-driver) and requesting the capabilities that are provided by the back-end.
 
-[](https://github.com/Open-EO/openeo-geopyspark-driver)
-
 - URL: http://openeo.vgt.vito.be/openeo
 - Credentials: none
 
 You want to find out which Sentinel-2 data is available at the back-end, as well as if the back-end provides User-Defined-Functions (UDFs). You want to run the provided Python script on each time series of the dataset. The extents are defined by: 
 
-- bounding box (left: 16.138916, top: 48.320647, right: 16.524124, bottom: 48.138600, EPSG:4326)
-- temporal extent (01.01.2018 – 31.01.2018)
+- bounding box (left: 6.8371137, top: 50.5647147, right: 6.8566699, bottom: 50.560007, EPSG:4326)
+- temporal extent (10.10.2017 – 30.10.2017)
 
-You want to download the results as GeoTiff.
+You want to download the results as GeoTiff (GTiff).
 
 ## Solutions
 
