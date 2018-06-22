@@ -59,7 +59,9 @@ import json
 with open("polygon.json","r") as f:
     polygon = asShape(json.load(f))
 
-session = rest_session.session(userid=None, endpoint=self._rest_base)
+import openeo
+endpoint = "http://openeo.vgt.vito.be/openeo"
+session = openeo.session("me", endpoint=endpoint)
 
 image_collection = session \
     .imagecollection('PROBAV_L3_S10_TOC_NDVI_333M') \
@@ -85,6 +87,7 @@ GTiff is supported.
 
 We are building the process graph and downloading the file to disk:
 ```{python}
+import os
 dir = os.path.dirname(openeo_udf.functions.__file__)
 file_name = os.path.join(dir, "raster_collections_ndvi.py")
 with open(file_name, "r")  as f:
