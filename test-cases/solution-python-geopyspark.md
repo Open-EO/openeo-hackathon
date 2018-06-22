@@ -1,5 +1,37 @@
 # openEO Hackathon - Solution Python client / GeoPyspark back-end
 
+## Task 1
+
+* Prerequisites: Python 3.5, pip
+* Clone/Download: [openeo-python-client](https://github.com/Open-EO/openeo-python-client)
+* Hint: Use [anaconda](https://anaconda.org/anaconda/python) for python versioning
+* Recommendation: Use Linux based operating system.
+
+Installing and loading the required packages, in your console:
+```{bash}
+# inside the project directory
+pip install -r requirements.txt
+pip install -r requirements-dev.txt
+pip install --user -e .
+```
+
+Connecting to the openEO GeoPyspark back-end:
+```{python}
+import openeo
+endpoint = "http://openeo.vgt.vito.be/openeo"
+session = openeo.session("me", endpoint=endpoint)
+```
+
+Requesting the capabilities that are provided by the back-end:
+```{python}
+session.list_capabilities()
+```
+
+Requesting the processes offered by the back-end:
+```{python}
+session.get_all_processes()
+```
+
 ## Task 4
 
 If you haven't done so yet, download the GeoJSON file containing the polygon:
@@ -37,35 +69,7 @@ timeseries = image_collection.zonal_statistics(polygon,'mean').execute()
 ```
 
 ## Task 5
-* Prerequisites: Python 3.5, pip
-* Clone/Download: [openeo-python-client](https://github.com/Open-EO/openeo-python-client)
-* Hint: Use [anaconda](https://anaconda.org/anaconda/python) for python versioning
-* Recommendation: Use Linux based operating system.
 
-Installing and loading the required packages, in your console:
-```{bash}
-# inside the project directory
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
-pip install --user -e .
-```
-
-Connecting to the openEO GeoPyspark back-end:
-```{python}
-import openeo
-endpoint = "http://openeo.vgt.vito.be/openeo"
-session = openeo.session("me", endpoint=endpoint)
-```
-
-Requesting the capabilities that are provided by the back-end:
-```{python}
-session.list_capabilities()
-```
-
-Requesting the processes offered by the back-end:
-```{python}
-session.get_all_processes()
-```
 
 Requesting the products offered by the back-end:
 ```{python}
