@@ -134,8 +134,8 @@ Construct and execute the process graph. Downloads the file in JSON format with 
 s2a_prd_msil1c = session.image(product)
 timeseries = s2a_prd_msil1c.date_range_filter(time["start"], time["end"])
 timeseries = timeseries.bbox_filter(left=bbox["left"], right=bbox["right"], top=bbox["top"], bottom=bbox["bottom"], srs=bbox["srs"])
-timeseries = timeseries.band_filter(bands)
-timeseries = timeseries.zonal_statistics(regions=zonal_statistics["regions"], func=zonal_statistics["func"])
+timeseries = timeseries.band_filter("B8")
+timeseries = timeseries.zonal_statistics(regions="polygon.json", func="mean")
 
 job = timeseries.send_job(out_format=out_format)
 
