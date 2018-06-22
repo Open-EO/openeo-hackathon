@@ -2,7 +2,7 @@
 
 ## Task 4
 
-If you haven't done so yet, download the GeoJSON file containing the poylgon:
+If you haven't done so yet, download the GeoJSON file containing the polygon:
 ```{python}
 polygon_dir = "polygon.json"
 polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
