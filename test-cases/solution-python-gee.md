@@ -75,7 +75,7 @@ For the construction of the process graph we need the following steps:
 7. Strecthing the colors
 8. Executing the process graph on the back-end, requesting a PNG file with the name `task_3_out.png`
 
-We define the parameters:
+We define commonly used parameters:
 ```{python}
 product = "COPERNICUS/S2"
 bbox = {
@@ -89,30 +89,20 @@ time = {
     "start": "2018-01-01",
     "end": "2018-01-31"
 }
-ndvi = {
-    "red": "B4",
-    "nir": "B8"
-}
-stretch = {
-    "min": -1,
-    "max": 1
-}
-out_format = "png"
 ```
 We are building the process graph as follows:
 ```{python}
 s2a_prd_msil1c = session.image(product)
 timeseries = s2a_prd_msil1c.bbox_filter(left=bbox["left"], right=bbox["right"], top=bbox["top"], bottom=bbox["bottom"], srs=bbox["srs"])
 timeseries = timeseries.date_range_filter(time["start"], time["end"])
-timeseries = timeseries.ndvi(ndvi["red"], ndvi["nir"])
+timeseries = timeseries.ndvi("B4", "B8")
 timeseries = timeseries.min_time()
-timeseries = timeseries.stretch_colors(stretch["min"], stretch["max"])
+timeseries = timeseries.stretch_colors(-1, 1)
 
 # Send Job to back end.
-job = timeseries.send_job(out_format=out_format)
-out_file = "task_3_out.png"
+job = timeseries.send_job(out_format="png")
 # download result from back end.
-job.download(out_file)
+job.download("task_3_out.png")
 ```
 
 ## Task 4
@@ -122,9 +112,9 @@ Checking if the process `zonal_statistics` is provided by the back-end:
 session.get_process('zonal_statistics')
 ```
 
-If you haven't done so yet, download [the GeoJSON file containing the poylgon](task-4/polygon.json) into the working directory of the Python client:
+If you haven't done so yet, download [the GeoJSON file containing the poylgon](task-4/polygon.json) into the working directory of the Python client.
 
-Uploading the GeoJSON file containing the poylgon:
+Uploading the downloaded file to the back-end:
 ```{python}
 session.user_upload_file("polygon.json")
 ```
@@ -137,10 +127,8 @@ timeseries = timeseries.bbox_filter(left=bbox["left"], right=bbox["right"], top=
 timeseries = timeseries.band_filter("B8")
 timeseries = timeseries.zonal_statistics(regions="polygon.json", func="mean")
 
-job = timeseries.send_job(out_format=out_format)
-
-out_file = "task_4.json"
-job.download(out_file)
+job = timeseries.send_job(out_format="json")
+job.download("task_4.json")
 ```
 
 ## Task 5
