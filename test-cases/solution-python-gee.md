@@ -112,7 +112,7 @@ Checking if the process `zonal_statistics` is provided by the back-end:
 session.get_process('zonal_statistics')
 ```
 
-If you haven't done so yet, download [the GeoJSON file containing the poylgon](task-4/polygon.json) into the working directory of the Python client.
+If you haven't done so yet, download [the GeoJSON file containing the poylgon](polygon.json) into the working directory of the Python client.
 
 Uploading the downloaded file to the back-end:
 ```{python}

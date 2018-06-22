@@ -28,7 +28,7 @@ You want to download the results as PNG (with additional color stretching) or Ge
 
 ## Task 4
 
-You want to compute time series of zonal statistics (arithmetic mean / average) of Sentinel-2 data using a predefined polygon. First of all you should check if the process `zonal_statistics` is provided by the back-end. Furthermore you need to upload [the prepared polygon](task-4/polygon.json). Use the following extents and band: 
+You want to compute time series of zonal statistics (arithmetic mean / average) of Sentinel-2 data using a predefined polygon. First of all you should check if the process `zonal_statistics` is provided by the back-end. Furthermore you need to upload [GeoJSON file containing the poylgon](polygon.json). Use the following extents and band: 
 
 * bounding box (left: 16.138916, top: 48.320647, right: 16.524124, bottom: 48.138600, EPSG:4326)
 * temporal extent (01.01.2018 – 31.01.2018)
@@ -56,7 +56,6 @@ You want to download the results as GeoTiff.
 
 ## Solutions
 
-* [R client / GEE back-end](solution-r-gee.rmd)
-* [R client / GeoPyspark back-end](solution-r-geopyspark.rmd)
-* [Python client / GEE back-end](solution-python-gee.md)
-* [Python client / GeoPyspark back-end](solution-python-geopyspark.md)
+* [R client / GEE back-end](solution-r-gee.rmd) (Tasks 1-4)
+* [Python client / GEE back-end](solution-python-gee.md) (Tasks 1-4)
+* [Python client / GeoPyspark back-end](solution-python-geopyspark.md) (Task 5)

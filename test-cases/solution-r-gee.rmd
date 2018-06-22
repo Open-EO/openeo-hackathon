@@ -95,7 +95,7 @@ con %>% describeProcess("zonal_statistics")
 
 If you haven't done so yet, download the GeoJSON file containing the poylgon:
 ```{r}
-polygonURL = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
+polygonURL = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/polygon.json"
 download.file(polygonURL, "polygon.json", quiet=TRUE)
 ```
 
