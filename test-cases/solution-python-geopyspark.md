@@ -96,28 +96,20 @@ out_format = "GTIFF"
 ```
 We are building the process graph as follows:
 ```{python}
-product = "CGS_SENTINEL2_RADIOMETRY_V101"
-
-s2a_prd_msil1c = session.image(product)
-timeseries = s2a_prd_msil1c.bbox_filter(left=bbox["left"], right=bbox["right"], top=bbox["top"], bottom=bbox["bottom"], srs=bbox["srs"])
-timeseries = timeseries.date_range_filter(time["start"], time["end"])
-timeseries = timeseries.ndvi(ndvi["red"], ndvi["nir"])
-timeseries = timeseries.min_time()
-timeseries = timeseries.stretch_colors(stretch["min"], stretch["max"])
-
-# Send Job to back end.
-job = timeseries.send_job(out_format=out_format)
-out_file = "task_3_out.png"
-# download result from back end.
-job.download(out_file)
+dir = os.path.dirname(openeo_udf.functions.__file__)
+file_name = os.path.join(dir, "raster_collections_ndvi.py")
+out_file = "task_3_out.geotiff"
+with open(file_name, "r")  as f:
+    udf_code = f.read()
+    image_collection = session.image(product) \
+                .date_range_filter(start_date=time["start"], end_date=time["end"]) \
+                .bbox_filter(left=bbox["left"],right=bbox["right"],bottom=bbox["bottom"],top=bbox["top"],srs=bbox["srs"]) \
+                .apply_tiles(udf_code) \
+                .min_time() \
+                .download(out_file,out_format)
 ```
 
 ## Task 4
-
-Checking if the process `zonal_statistics` is provided by the back-end:
-```{python}
-session.get_process('zonal_statistics')
-```
 
 If you haven't done so yet, download the GeoJSON file containing the poylgon:
 ```{python}
@@ -134,11 +126,6 @@ with open(polygon_dir, 'wb') as handle:
         if not block:
             break
         handle.write(block)
-```
-
-Uploading the GeoJSON file containing the poylgon:
-```{python}
-session.user_upload_file(polygon_dir)
 ```
 
 Construct and execute the process graph. Downloads the file in JSON format with the file name `task_4.json`:
