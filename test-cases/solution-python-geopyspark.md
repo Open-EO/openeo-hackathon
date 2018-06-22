@@ -1,5 +1,41 @@
 # openEO Hackathon - Solution Python client / GeoPyspark back-end
 
+## Task 4
+
+If you haven't done so yet, download the GeoJSON file containing the poylgon:
+```{python}
+polygon_dir = "polygon.json"
+polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
+with open(polygon_dir, 'wb') as handle:
+    response = requests.get(polygon_url, stream=True)
+    
+    if not response.ok:
+        print (response)
+
+    for block in response.iter_content(1024):
+
+        if not block:
+            break
+        handle.write(block)
+```
+
+Construct and execute the process graph. The execute call is synchronous, so it computes the time series on the fly:
+```{python}
+from shapely.geometry import asShape
+import json
+
+with open("polygon.json","r") as f:
+    polygon = asShape(json.load(f))
+
+session = rest_session.session(userid=None, endpoint=self._rest_base)
+
+image_collection = session \
+    .imagecollection('PROBAV_L3_S10_TOC_NDVI_333M') \
+    .date_range_filter(start_date="2017-11-01", end_date="2017-11-30")
+
+timeseries = image_collection.zonal_statistics(polygon,'mean').execute()
+```
+
 ## Task 5
 * Prerequisites: Python 3.5, pip
 * Clone/Download: [openeo-python-client](https://github.com/Open-EO/openeo-python-client)
