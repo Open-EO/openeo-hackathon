@@ -53,7 +53,7 @@ timeseries = image_collection.zonal_statistics(polygon,'mean').execute()
 
 ## Task 5
 
-If you haven't done so yet, download [the UDF file containing Python code to calculate the NDVI](raster_collections_ndvi.py) to the working directory of the Python client.
+If you haven't done so yet, download [the UDF file containing Python code to calculate the NDVI](raster_collections_ndvi.py) to the working directory of the Python client: https://raw.githubusercontent.com/Open-EO/openeo-udf/master/src/openeo_udf/functions/raster_collections_ndvi.py
 
 Requesting the products offered by the back-end:
 ```{python}
@@ -69,11 +69,22 @@ GTiff is supported.
 
 We are building the process graph and downloading the file to disk:
 ```{python}
+ bbox = {
+    "left": 6.8371137,
+    "top": 50.5647147,
+    "right": 6.8566699,
+    "bottom": 50.560007,
+    "srs": "EPSG:4326"
+}
+time = {
+    "start": "2017-10-10",
+    "end": "2017-10-30"
+}
 with open("raster_collections_ndvi.py", "r")  as f:
     udf_code = f.read()
     image_collection = session.image("CGS_SENTINEL2_RADIOMETRY_V101") \
-                .date_range_filter(start_date="2018-01-01", end_date="2018-01-31") \
-                .bbox_filter(left = 16.138916, right = 16.524124, bottom = 48.138600, top = 48.320647, srs = "EPSG:4326") \
+                .date_range_filter(start_date=time["start"], end_date=time["end"]) \
+                .bbox_filter(left=bbox["left"],right=bbox["right"],bottom=bbox["bottom"],top=bbox["top"],srs=bbox["srs"]) \
                 .apply_tiles(udf_code) \
                 .min_time() \
                 .download("task_3_out.geotiff", "GTIFF")
