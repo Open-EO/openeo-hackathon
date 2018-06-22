@@ -36,6 +36,7 @@ session.get_all_processes()
 
 If you haven't done so yet, download the GeoJSON file containing the polygon:
 ```{python}
+import requests
 polygon_dir = "polygon.json"
 polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
 with open(polygon_dir, 'wb') as handle:
