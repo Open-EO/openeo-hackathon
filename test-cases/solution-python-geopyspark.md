@@ -39,16 +39,13 @@ If you haven't done so yet, download the GeoJSON file containing the polygon:
 polygon_dir = "polygon.json"
 polygon_url = "https://raw.githubusercontent.com/Open-EO/openeo-hackathon/master/test-cases/task-4/polygon.json"
 with open(polygon_dir, 'wb') as handle:
-    response = requests.get(polygon_url, stream=True)
-    
-    if not response.ok:
-        print (response)
-
-    for block in response.iter_content(1024):
-
-        if not block:
-            break
-        handle.write(block)
+  response = requests.get(polygon_url, stream=True)
+  if not response.ok:
+    print (response)
+  for block in response.iter_content(1024):
+    if not block:
+      break
+    handle.write(block)
 ```
 
 Construct and execute the process graph. The execute call is synchronous, so it computes the time series on the fly:
