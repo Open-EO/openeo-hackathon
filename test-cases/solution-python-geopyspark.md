@@ -105,6 +105,6 @@ with open("raster_collections_ndvi.py", "r")  as f:
                 .date_range_filter(start_date=time["start"], end_date=time["end"]) \
                 .bbox_filter(left=bbox["left"],right=bbox["right"],bottom=bbox["bottom"],top=bbox["top"],srs=bbox["srs"]) \
                 .apply_tiles(udf_code) \
-                .min_time() \
+                .max_time() \
                 .download("task_5_out.geotiff", "GTIFF")
 ```
