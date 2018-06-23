@@ -83,6 +83,9 @@ Connect to the back-end as described in task 1. Request information about availa
 
 After connecting to the back-end, we are building the process graph and downloading the file to disk:
 ```{python}
+import openeo
+import os
+
 bbox = {
     "left": 6.8371137,
     "top": 50.5647147,
@@ -94,6 +97,8 @@ time = {
     "start": "2017-10-10",
     "end": "2017-10-30"
 }
+
+session = openeo.session("me", endpoint="http://openeo.vgt.vito.be/openeo")
 with open("raster_collections_ndvi.py", "r")  as f:
     udf_code = f.read()
     image_collection = session.image("CGS_SENTINEL2_RADIOMETRY_V101") \
@@ -101,5 +106,5 @@ with open("raster_collections_ndvi.py", "r")  as f:
                 .bbox_filter(left=bbox["left"],right=bbox["right"],bottom=bbox["bottom"],top=bbox["top"],srs=bbox["srs"]) \
                 .apply_tiles(udf_code) \
                 .min_time() \
-                .download("task_3_out.geotiff", "GTIFF")
+                .download("task_5_out.geotiff", "GTIFF")
 ```
