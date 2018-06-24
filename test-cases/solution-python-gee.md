@@ -71,7 +71,7 @@ For the construction of the process graph we need the following steps:
 3. Filtering by date range
 4. Filtering by bounding box
 5. Calculating the NDVI on the red band B4 and the near-infrared band B8
-6. Computing a minimum time composite
+6. Computing a maximum time composite
 7. Strecthing the colors
 8. Executing the process graph on the back-end, requesting a PNG file with the name `task_3_out.png`
 
@@ -96,7 +96,7 @@ s2a_prd_msil1c = session.image(product)
 timeseries = s2a_prd_msil1c.bbox_filter(left=bbox["left"], right=bbox["right"], top=bbox["top"], bottom=bbox["bottom"], srs=bbox["srs"])
 timeseries = timeseries.date_range_filter(time["start"], time["end"])
 timeseries = timeseries.ndvi("B4", "B8")
-timeseries = timeseries.min_time()
+timeseries = timeseries.max_time()
 timeseries = timeseries.stretch_colors(-1, 1)
 
 # Send Job to back end.

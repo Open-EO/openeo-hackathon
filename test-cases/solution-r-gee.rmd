@@ -4,16 +4,18 @@
 
 Installing and loading the required packages:
 ```{r}
-install.packages("devtools")
-require("devtools")
+if (!require(devtools)) {
+  install.packages("devtools",dependencies=TRUE)
+  library(devtools)
+}
 
 # Sometimes the devtools fail to install some dependencies.
 # You may need to install Rcpp and rlang manually by uncommenting thw following two lines:
 # install.packages("Rcpp")
 # install.packages("rlang")
 
-install_github(repo="Open-EO/openeo-r-client",ref="develop",dependencies=TRUE)
-require("openeo")
+install_github(repo="Open-EO/openeo-r-client",ref="v0.2.2",dependencies=TRUE)
+library(openeo)
 ```
 
 Connecting to the openEO Earth Engine back-end. You may need to change the credentials:
@@ -69,18 +71,18 @@ We construct the process graph using a process graph builder. The following step
 3. Filtering by date range
 4. Filtering by bounding box
 5. Calculating the NDVI on the red band B4 and the near-infrared band B8
-6. Computing a minimum time composite
+6. Computing a maximum time composite
 7. Strecthing the colors
 8. Executing the process graph on the back-end, requesting a PNG file with the name `task3.png`
 
 ```{r}
 pgb = con %>% pgb()
 
-task = collection("COPERNICUS/S2",id_name = "product_id") %>% 
+task = collection("COPERNICUS/S2") %>% 
   pgb$filter_daterange(from = "2018-01-01", to= "2018-01-15") %>% 
   pgb$filter_bbox(left = 16.138916,top= 48.320647, right= 16.524124, bottom= 48.138600, srs="EPSG:4326") %>%
   pgb$NDVI(red = "B4", nir = "B8") %>%
-  pgb$min_time() %>%
+  pgb$max_time() %>%
   pgb$stretch_colors(min = -1, max = 1)
 
 con %>% executeTask(task=task, format = "PNG", output_file = "task3.png")
@@ -101,14 +103,14 @@ download.file(polygonURL, "polygon.json", quiet=TRUE)
 
 Uploading the GeoJSON file containing the polygon:
 ```{r}
-con %>% uploadUserData(content="polygon.json",target="polygon.json",encode="raw",mime="application/octet-stream")
+con %>% uploadUserData(content="polygon.json",target="polygon.json")
 ```
 
 Construct and execute the process graph. Downloads the file in JSON format with the file name `task5.json`:
 ```{r}
-task5 = collection("COPERNICUS/S2",id_name = "product_id") %>% 
-  pgb$filter_daterange(from = "2018-01-01", to= "2018-01-15") %>% 
-  pgb$filter_bbox(left = 16.138916,top= 48.320647, right= 16.524124, bottom= 48.138600, srs="EPSG:4326") %>%
+task5 = collection("COPERNICUS/S2") %>% 
+  pgb$filter_daterange(from="2018-01-01", to="2018-01-15") %>% 
+  pgb$filter_bbox(left=16.138916, top=48.320647, right=16.524124, bottom=48.138600, srs="EPSG:4326") %>%
   pgb$filter_bands(bands = "B8") %>%
   pgb$zonal_statistics(regions = "polygon.json", func = "mean")
 
