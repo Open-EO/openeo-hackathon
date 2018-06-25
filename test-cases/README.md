@@ -45,7 +45,7 @@ Make sure that the Python client is properly working by connecting to the [openE
 - URL: http://openeo.vgt.vito.be/openeo
 - Credentials: none
 
-You want to find out which Sentinel-2 data is available at the back-end, as well as if the back-end provides User-Defined-Functions (UDFs). You want to run the provided Python script on each time series of the dataset. The extents are defined by: 
+You want to find out which Sentinel-2 data is available at the back-end, as well as if the back-end provides User-Defined-Functions (UDFs). You want to run the [provided Python script](raster_collections_ndvi.py) on each time series of the dataset. The extents are defined by: 
 
 - bounding box (left: 6.8371137, top: 50.5647147, right: 6.8566699, bottom: 50.560007, EPSG:4326)
 - temporal extent (10.10.2017 – 30.10.2017)
