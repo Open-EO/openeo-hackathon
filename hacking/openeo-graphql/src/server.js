@@ -1,6 +1,6 @@
 /**
  * @server.js
- *  routing of requests and Koa <-> Graphql
+ *  routing of requests  --   Client <-> Koa <-> Graphql
  */
 
 import Koa from 'koa';
@@ -10,10 +10,7 @@ import compress from 'koa-compress';
 import helmet from 'koa-helmet';
 import cors from '@koa/cors';
 
-//graphql imports
 import { graphiqlKoa, graphqlKoa } from 'apollo-server-koa';
-
-//subscription imports
 import { SubscriptionServer } from 'subscriptions-transport-ws';
 import { execute, subscribe } from 'graphql';
 
