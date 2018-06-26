@@ -76,7 +76,7 @@ query {
     isLoggedIn
   },
   user(id: "group10"){
-	  processGraphs,
+    processGraphs,
     credits,
     files{
       size,
@@ -158,7 +158,7 @@ multiple requests on the server, but for you it will be combined into one reques
     isLoggedIn
   },
   user(id: "group10"){
-	  processGraphs,
+    processGraphs,
     credits,
     files{
       size,
@@ -175,7 +175,7 @@ multiple requests on the server, but for you it will be combined into one reques
     }
   }
   capabilities {
-  	api,
+    api,
     services,
     formats{
       default,
@@ -231,10 +231,10 @@ For this mutation you need to run the `auth` query first
 ```graphql
 mutation ($bbox: JSON, $time: JSON, $ndvi: JSON) {
   imageCollection(
-    collectionId: "COPERNICUS/S2", 
-    outputFormat: "png", 
-    bbox: $bbox
-  	time: $time
+    collectionId: "COPERNICUS/S2",
+    outputFormat: "png",
+    bbox: $bbox,
+    time: $time,
     ndvi: $ndvi,
     maxTime: true
   )
