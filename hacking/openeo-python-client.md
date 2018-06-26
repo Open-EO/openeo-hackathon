@@ -1,4 +1,7 @@
 ## Issues created during the Hackathon
+* [#38 Merging session.image() and session.imagecollection()](https://github.com/Open-EO/openeo-python-client/issues/38)
+* [#37 Pull Request](https://github.com/Open-EO/openeo-python-client/issues/37)
+* [#36 Pull Request](https://github.com/Open-EO/openeo-python-client/issues/36)
 * [#35 Improvement of displaying ImageCollection](https://github.com/Open-EO/openeo-python-client/issues/35)
 * [#34 Adding possibiliy to visualize the process graph ](https://github.com/Open-EO/openeo-python-client/issues/34)
 * [#33 Pull Request](https://github.com/Open-EO/openeo-python-client/issues/33)
