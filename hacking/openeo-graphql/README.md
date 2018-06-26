@@ -44,8 +44,9 @@ query {
 ```
 
 
-<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20capabilities%20%7B%0A%20%20%09api%2C%0A%20%20%20%20services%2C%0A%20%20%20%20formats%7B%0A%20%20%20%20%20%20default%2C%0A%20%20%20%20%20%20formats%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_tab">run in graphiql</a>
+<a target="_tab" href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20capabilities%20%7B%0A%20%20%09api%2C%0A%20%20%20%20services%2C%0A%20%20%20%20formats%7B%0A%20%20%20%20%20%20default%2C%0A%20%20%20%20%20%20formats%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D">run in graphiql</a>
 
+(Tip: open the links using your middle mouse key, github still haven't implemented the open in new tab feature for links)
 
 #### Authenticate
 
