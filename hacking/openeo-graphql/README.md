@@ -21,6 +21,10 @@ __Perquisites:__ A modern node.js version (tested with v10)
 
 play with api at: http://localhost:2104/graphiql
 
+If you want to look into the implementation:
+The whole logic is inside `graphql/openEO/resolvers` and `graphql/openEO/types` both are than combined in `graphql/schema.js`
+
+The rest is only server setup stuff and hot-reloading functionality
 
 ## Api
 
