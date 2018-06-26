@@ -33,7 +33,7 @@ You can remove unneeded attributes of the queries. This way you can avoid over-f
 ```graphql
 query {
   capabilities {
-  	api,
+    api,
     services,
     formats{
       default,
@@ -44,7 +44,7 @@ query {
 ```
 
 
-<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20capabilities%20%7B%0A%20%20%09api%2C%0A%20%20%20%20services%2C%0A%20%20%20%20formats%7B%0A%20%20%20%20%20%20default%2C%0A%20%20%20%20%20%20formats%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">run in graphiql</a>
+<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20capabilities%20%7B%0A%20%20%09api%2C%0A%20%20%20%20services%2C%0A%20%20%20%20formats%7B%0A%20%20%20%20%20%20default%2C%0A%20%20%20%20%20%20formats%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_tab">run in graphiql</a>
 
 
 #### Authenticate
@@ -89,6 +89,8 @@ query {
 ```
 
 <a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fgiv-project8.uni-muenster.de%22%2C%20user%3A%20%22group1%22%2C%20password%3A%20%22test123%22)%20%7B%0A%20%20%20%20isLoggedIn%0A%20%20%7D%0A%20%20user(id%3A%20%22group10%22)%7B%0A%09%20%20processGraphs%2C%0A%20%20%20%20credits%2C%0A%20%20%20%20files%7B%0A%20%20%20%20%20%20size%2C%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%20%20services%7B%0A%20%20%20%20%20%20service_args%2C%0A%20%20%20%20%20%20job_id%0A%20%20%20%20%7D%2C%0A%20%20%20%20jobs%7B%0A%20%20%20%20%20%20job_id%2C%0A%20%20%20%20%20%20submitted%2C%0A%20%20%20%20%20%20consumed_credits%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">run in graphiql</a>
+
+Somehow you need to hit two times run to retrieve all of the data
 
 #### Data
 
