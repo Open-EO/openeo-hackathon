@@ -1,0 +1,19 @@
+{
+"env": {
+      "test": {
+        "presets": [
+          "env",
+          "es2016",
+          "stage-0"
+        ]
+      }
+    },
+    "presets": [["env", {"modules": false}]],
+    "plugins": [
+      "syntax-dynamic-import",
+      "transform-runtime",
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-regenerator"
+    ]
+}
