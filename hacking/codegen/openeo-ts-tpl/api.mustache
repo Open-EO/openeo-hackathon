@@ -1,0 +1,52 @@
+/// <reference path="./custom.d.ts" />
+// tslint:disable
+
+const BASE_PATH = "{{{basePath}}}"
+
+export class OpenEO {
+
+    address: string;
+
+    constructor(server: string) {
+       this.address = server + BASE_PATH;
+    }
+    
+{{#apiInfo}}{{#apis}}{{#operations}}
+    public get{{baseName}}() {
+        return new {{classname}}(this.address);
+    }
+{{/operations}}{{/apis}}{{/apiInfo}}  
+}
+
+export class BaseAPI {
+
+    address: string;
+
+    constructor(address: string) {
+       this.address = address;
+    }
+
+    protected send(method: string, path: string): Promise<JSON> {
+        return fetch(this.address + path, { method: method }).then((response) => {
+            if (response.status >= 200 && response.status < 300) {
+                return response.json();
+            } else {
+                throw response;
+            }
+        });
+    }
+}
+
+{{#apiInfo}}{{#apis}}{{#operations}}
+export class {{classname}} extends BaseAPI {
+{{#operation}}
+    public {{nickname}}({{#allParams}}{{paramName}}{{^required}}?{{/required}}: any, {{/allParams}}options?: any): Promise<JSON> {
+        {{=<% %>=}}
+        const url = "<%path%>"<%#pathParams%>
+                .replace("{<%baseName%>}", encodeURIComponent(String(<%paramName%>)))<%/pathParams%>;
+        <%={{ }}=%>
+        return this.send("{{httpMethod}}", url);
+    }
+{{/operation}}
+}
+{{/operations}}{{/apis}}{{/apiInfo}}
