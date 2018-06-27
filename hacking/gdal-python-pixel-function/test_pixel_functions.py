@@ -9,9 +9,9 @@ import numpy as np
 in_file1 = '' # fullpath to georeferenced (e.g. vrt/tif/jp2) file
 in_file2 = '' # fullpath to georeferenced (e.g. vrt/tif/jp2) file
 
-out_file1 = '' # output vrt filename (no path)
+out_file1 = 'output_multiply.vrt' # output vrt filename (no path)
 
-out_file2 = '' # output vrt filename (no path)
+out_file2 = 'output_add.vrt' # output vrt filename (no path)
 
 # Example 1: Use pixel  function 'multiply'
 build_vrt([in_file1], out_file1, 'pixel_functions.multiply')
