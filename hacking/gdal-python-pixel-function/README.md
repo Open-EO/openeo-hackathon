@@ -32,3 +32,15 @@ Edit ./etc/conda/deactivate.d/env_vars.sh as follows:
 unset GDAL_VRT_ENABLE_PYTHON
 unset GDAL_VRT_PYTHON_TRUSTED_MODULES
 ```
+
+## Run Example
+
+* Make sure the open_EO_gdal environment is active (see above)
+
+* Open test_pixel_functions.py and input two path/to/georef-files as input
+
+* Run the examples
+```bash
+python test_pixel_functions.py
+```
+Two vrt files will be generated in the current folder and displayed.
