@@ -1,3 +1,10 @@
+## Intro
+
+This example shows how to use gdal pixel functions written in python within a .vrt file (http://www.gdal.org/gdal_vrttut.html#gdal_vrttut_derived_python), including setting up a working conda environment with the necessary gdal variables.
+
+Contributors: Luca Foresta and Sophie Hermann
+
+
 ## Setup environment and variables
 
 * Setup conda environment
@@ -8,7 +15,7 @@ conda env create -f env.yml
 ```bash
 source activate open_EO_gdal
 ```
-* Within the loaded environment, setup gdal variables necessary to execute python code within .vrt files
+* Within the loaded environment, setup gdal variables necessary to execute python code within .vrt files. These variables are set when the conda env is activated and unset when it is deactivated.
 (See e.g. here: https://conda.io/docs/user-guide/tasks/manage-environments.html under 'Saving environment variables')
 Locate the conda environment folder (e.g. by typing 'which python') and do the following:
 ```bash
