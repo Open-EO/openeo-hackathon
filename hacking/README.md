@@ -26,6 +26,7 @@ The following list are proposals for possible features or extensions of openEO. 
 * [GDAL pixel functions](gdal-python-pixel-function/)
 * [GraphQL wrapper for openEO](openeo-graphql/)
 * [Web Editor: Visual Process Graph Builder](web-editor-model-builder/)
+* [OpenSearch implementation for OpenEO WCPS driver](openeo-wcps-driver-openEO_meta/)
 
 ### API issues
 
