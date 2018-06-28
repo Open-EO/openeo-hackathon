@@ -18,7 +18,7 @@ The following list are proposals for possible features or extensions of openEO. 
 * Add Exception Handling / Error Handling (e.g. If a process is called, that is not implemented by the backend) to the openEO Python client. See API v0.3 for more information about error handling in the next version of openEO.
 * Extend the GEE back-end to support other GEE scripts: Do you have any Google Earth Engine script you want to run with openEO? We may be able to add the required processes to the back-end and run your script via openEO.
 
-## Results from the openEO Hackathon
+## Results
 
 ### Projects
 
@@ -29,20 +29,19 @@ The following list are proposals for possible features or extensions of openEO. 
 
 ### API issues
 
-* [Datasets with disjoint extents](https://github.com/Open-EO/openeo-api/issues/101)
-* [Debugging and getting intermediate result and metadata](https://github.com/Open-EO/openeo-api/issues/100)
-* [xxx_time: Names for aggregate functions are misleading](https://github.com/Open-EO/openeo-api/issues/99)
-* [ndvi: Name of the process](https://github.com/Open-EO/openeo-api/issues/98)
-* [Common band names](https://github.com/Open-EO/openeo-api/issues/97)
-* [Further references / links for data discovery and other parts of the API](https://github.com/Open-EO/openeo-api/issues/96)
-* + contributions to existing issues.
+* [#101 Datasets with disjoint extents](https://github.com/Open-EO/openeo-api/issues/101)
+* [#100 Debugging and getting intermediate result and metadata](https://github.com/Open-EO/openeo-api/issues/100)
+* [#99 xxx_time: Names for aggregate functions are misleading](https://github.com/Open-EO/openeo-api/issues/99)
+* [#98 ndvi: Name of the process](https://github.com/Open-EO/openeo-api/issues/98)
+* [#97 Common band names](https://github.com/Open-EO/openeo-api/issues/97)
+* [#96 Further references / links for data discovery and other parts of the API](https://github.com/Open-EO/openeo-api/issues/96)
+* plus contributions to existing issues.
 
 ### R Client issues
 
 * [#20 Better error messages](https://github.com/Open-EO/openeo-r-client/issues/20)
 * [#21 Making required packages optional](https://github.com/Open-EO/openeo-r-client/issues/21)
 * [#22 Performance of describeCollection across OSs](https://github.com/Open-EO/openeo-r-client/issues/22)
-
 
 ### Python Client issues
 
