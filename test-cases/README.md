@@ -10,7 +10,7 @@ Please install the openEO client of your choice:
 
 Make sure that the client is properly working by connecting to the [openEO Earth Engine back-end](https://github.com/Open-EO/openeo-earthengine-driver) and requesting the capabilities that are provided by the back-end.
 
-- URL: http://giv-project8.uni-muenster.de
+- URL: https://earthengine.openeo.org
 - Credentials: Username is `groupX`  with X being the group number and password `test123`
 
 ## Task 2
