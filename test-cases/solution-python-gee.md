@@ -18,7 +18,7 @@ Connecting to the openEO Earth Engine back-end. You may need to change the crede
 ```{python}
 import openeo
 from openeo.auth.auth_bearer import BearerAuth
-endpoint = "http://giv-project8.uni-muenster.de"
+endpoint = "http://earthengine.openeo.org"
 username = "groupX"
 password = "test123"
 session = openeo.session(username, endpoint=endpoint)
