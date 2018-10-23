@@ -17,7 +17,7 @@ import { execute, subscribe } from 'graphql';
 import { createRootSchema } from './graphql/schema';
 
 import { OpenEO } from '@openeo/js-client';
-OpenEO.API.baseUrl = 'http://giv-project8.uni-muenster.de';
+OpenEO.API.baseUrl = 'http://example.url';
 
 export const app = new Koa();
 const router = new KoaRouter();

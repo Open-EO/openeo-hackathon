@@ -14,11 +14,12 @@ pip install -r requirements-dev.txt
 pip install --user -e .
 ```
 
-Connecting to the openEO Earth Engine back-end. You may need to change the credentials:
+Connecting to the openEO Earth Engine back-end. You may need to change the credentials.
+Credentials for a demo server may be provided in the [openEO Earth Engine back-end repository](https://github.com/Open-EO/openeo-earthengine-driver).
 ```{python}
 import openeo
 from openeo.auth.auth_bearer import BearerAuth
-endpoint = "http://earthengine.openeo.org"
+endpoint = "https://example.url"
 username = "groupX"
 password = "test123"
 session = openeo.session(username, endpoint=endpoint)

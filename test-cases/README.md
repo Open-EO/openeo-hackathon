@@ -8,10 +8,7 @@ Please install the openEO client of your choice:
 * [Python client](https://github.com/Open-EO/openeo-python-client)
 * [R client](https://github.com/Open-EO/openeo-r-client)
 
-Make sure that the client is properly working by connecting to the [openEO Earth Engine back-end](https://github.com/Open-EO/openeo-earthengine-driver) and requesting the capabilities that are provided by the back-end.
-
-- URL: https://earthengine.openeo.org
-- Credentials: Username is `groupX`  with X being the group number and password `test123`
+Make sure that the client is properly working by connecting to the [openEO Earth Engine back-end](https://github.com/Open-EO/openeo-earthengine-driver) and requesting the capabilities that are provided by the back-end. Credentials for a demo server may be provided in the [openEO Earth Engine back-end repository](https://github.com/Open-EO/openeo-earthengine-driver).
 
 ## Task 2
 

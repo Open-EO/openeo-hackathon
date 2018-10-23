@@ -58,7 +58,7 @@ query {
 
 ```graphql
 query {
-  auth(endpoint: "http://giv-project8.uni-muenster.de", user: "group1", password: "test123"){
+  auth(endpoint: "http://example.url", user: "group1", password: "test123"){
     user
     token
     isLoggedIn
@@ -66,13 +66,13 @@ query {
 }
 ```
 
-<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fgiv-project8.uni-muenster.de%22%2C%20user%3A%20%22group10%22%2C%20password%3A%20%22test123%22)%20%7B%0A%20%20%20%20user%0A%20%20%20%20token%0A%20%20%20%20isLoggedIn%0A%20%20%7D%0A%7D" target="_blank">run in graphiql</a>
+<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fexample.url%22%2C%20user%3A%20%22group10%22%2C%20password%3A%20%22test123%22)%20%7B%0A%20%20%20%20user%0A%20%20%20%20token%0A%20%20%20%20isLoggedIn%0A%20%20%7D%0A%7D" target="_blank">run in graphiql</a>
 
 #### User data
 
 ```graphql
 query {
-  auth(endpoint: "http://giv-project8.uni-muenster.de", user: "group1", password: "test123"){
+  auth(endpoint: "http://example.url", user: "group1", password: "test123"){
     isLoggedIn
   },
   user(id: "group10"){
@@ -95,7 +95,7 @@ query {
 }
 ```
 
-<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fgiv-project8.uni-muenster.de%22%2C%20user%3A%20%22group1%22%2C%20password%3A%20%22test123%22)%20%7B%0A%20%20%20%20isLoggedIn%0A%20%20%7D%0A%20%20user(id%3A%20%22group10%22)%7B%0A%09%20%20processGraphs%2C%0A%20%20%20%20credits%2C%0A%20%20%20%20files%7B%0A%20%20%20%20%20%20size%2C%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%20%20services%7B%0A%20%20%20%20%20%20service_args%2C%0A%20%20%20%20%20%20job_id%0A%20%20%20%20%7D%2C%0A%20%20%20%20jobs%7B%0A%20%20%20%20%20%20job_id%2C%0A%20%20%20%20%20%20submitted%2C%0A%20%20%20%20%20%20consumed_credits%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">run in graphiql</a>
+<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fexample.url%22%2C%20user%3A%20%22group1%22%2C%20password%3A%20%22test123%22)%20%7B%0A%20%20%20%20isLoggedIn%0A%20%20%7D%0A%20%20user(id%3A%20%22group10%22)%7B%0A%09%20%20processGraphs%2C%0A%20%20%20%20credits%2C%0A%20%20%20%20files%7B%0A%20%20%20%20%20%20size%2C%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%20%20services%7B%0A%20%20%20%20%20%20service_args%2C%0A%20%20%20%20%20%20job_id%0A%20%20%20%20%7D%2C%0A%20%20%20%20jobs%7B%0A%20%20%20%20%20%20job_id%2C%0A%20%20%20%20%20%20submitted%2C%0A%20%20%20%20%20%20consumed_credits%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" target="_blank">run in graphiql</a>
 
 > __Note:__ Somehow you need to hit two times run to retrieve all of the data
 
@@ -103,7 +103,7 @@ query {
 
 ```graphql
 query {
-  auth(endpoint: "http://giv-project8.uni-muenster.de", user: "group1", password: "test123"){
+  auth(endpoint: "http://example.url", user: "group1", password: "test123"){
     isLoggedIn
   },
   data(id: "ASTER/AST_L1T_003"){
@@ -120,13 +120,13 @@ query {
 }
 ```
 
-<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fgiv-project8.uni-muenster.de%22%2C%20user%3A%20%22group10%22%2C%20password%3A%20%22test123%22)%7B%0A%20%20%20%20isLoggedIn%0A%20%20%7D%2C%0A%20%20data(id%3A%20%22ASTER%2FAST_L1T_003%22)%7B%0A%20%20%20%20source%2C%0A%20%20%20%20description%2C%0A%20%20%20%20product_id%0A%20%20%7D%2C%0A%20%20%23this%20would%20query%20all%20data%0A%20%20%23data%7B%0A%20%20%23%20%20source%2C%0A%20%20%23%20%20description%2C%0A%20%20%23%20%20product_id%0A%20%20%23%7D%0A%7D" target="_blank">run in graphiql</a>
+<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fexample.url%22%2C%20user%3A%20%22group10%22%2C%20password%3A%20%22test123%22)%7B%0A%20%20%20%20isLoggedIn%0A%20%20%7D%2C%0A%20%20data(id%3A%20%22ASTER%2FAST_L1T_003%22)%7B%0A%20%20%20%20source%2C%0A%20%20%20%20description%2C%0A%20%20%20%20product_id%0A%20%20%7D%2C%0A%20%20%23this%20would%20query%20all%20data%0A%20%20%23data%7B%0A%20%20%23%20%20source%2C%0A%20%20%23%20%20description%2C%0A%20%20%23%20%20product_id%0A%20%20%23%7D%0A%7D" target="_blank">run in graphiql</a>
 
 #### Processes
 
 ```graphql
 query {
-  auth(endpoint: "http://giv-project8.uni-muenster.de", user: "group10", password: "test123"){
+  auth(endpoint: "http://example.url", user: "group10", password: "test123"){
     isLoggedIn
   },
   processes(id: "max_time") {
@@ -141,7 +141,7 @@ query {
 }
 ```
 
-<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fgiv-project8.uni-muenster.de%22%2C%20user%3A%20%22group10%22%2C%20password%3A%20%22test123%22)%7B%0A%20%20%20%20isLoggedIn%0A%20%20%7D%2C%0A%20%20processes(id%3A%20%22max_time%22)%20%7B%0A%20%20%20%20process_id%0A%20%20%20%20description%0A%20%20%7D%0A%20%20%23this%20would%20query%20all%20processes%0A%20%20%23processes%7B%0A%20%20%23%20%20process_id%0A%20%20%23%20%20description%0A%20%20%23%7D%0A%7D" target="_blank">run in graphiql</a>
+<a href="http://localhost:2104/graphiql?query=query%20%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fexample.url%22%2C%20user%3A%20%22group10%22%2C%20password%3A%20%22test123%22)%7B%0A%20%20%20%20isLoggedIn%0A%20%20%7D%2C%0A%20%20processes(id%3A%20%22max_time%22)%20%7B%0A%20%20%20%20process_id%0A%20%20%20%20description%0A%20%20%7D%0A%20%20%23this%20would%20query%20all%20processes%0A%20%20%23processes%7B%0A%20%20%23%20%20process_id%0A%20%20%23%20%20description%0A%20%20%23%7D%0A%7D" target="_blank">run in graphiql</a>
 
 
 #### Combination
@@ -152,7 +152,7 @@ multiple requests on the server, but for you it will be combined into one reques
 
 ```graphql
 {
-  auth(endpoint: "http://giv-project8.uni-muenster.de", user: "group1", password: "test123"){
+  auth(endpoint: "http://example.url", user: "group1", password: "test123"){
     user
     token
     isLoggedIn
@@ -205,7 +205,7 @@ multiple requests on the server, but for you it will be combined into one reques
 }
 ```
 
-<a href="http://localhost:2104/graphiql?query=%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fgiv-project8.uni-muenster.de%22%2C%20user%3A%20%22group1%22%2C%20password%3A%20%22test123%22)%7B%0A%20%20%20%20user%0A%20%20%20%20token%0A%20%20%20%20isLoggedIn%0A%20%20%7D%2C%0A%20%20user(id%3A%20%22group10%22)%7B%0A%09%20%20processGraphs%2C%0A%20%20%20%20credits%2C%0A%20%20%20%20files%7B%0A%20%20%20%20%20%20size%2C%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%20%20services%7B%0A%20%20%20%20%20%20service_args%2C%0A%20%20%20%20%20%20job_id%0A%20%20%20%20%7D%2C%0A%20%20%20%20jobs%7B%0A%20%20%20%20%20%20job_id%2C%0A%20%20%20%20%20%20submitted%2C%0A%20%20%20%20%20%20consumed_credits%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20capabilities%20%7B%0A%20%20%09api%2C%0A%20%20%20%20services%2C%0A%20%20%20%20formats%7B%0A%20%20%20%20%20%20default%2C%0A%20%20%20%20%20%20formats%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20data(id%3A%20%22ASTER%2FAST_L1T_003%22)%7B%0A%20%20%20%20source%2C%0A%20%20%20%20description%2C%0A%20%20%20%20product_id%0A%20%20%7D%2C%0A%20%20%23this%20would%20query%20all%20data%0A%20%20%23data%7B%0A%20%20%23%20%20source%2C%0A%20%20%23%20%20description%2C%0A%20%20%23%20%20product_id%0A%20%20%23%7D%2C%0A%20%20processes(id%3A%20%22max_time%22)%20%7B%0A%20%20%20%20process_id%0A%20%20%20%20description%0A%20%20%7D%0A%20%20%23this%20would%20query%20all%20processes%0A%20%20%23processes%7B%0A%20%20%23%20%20process_id%0A%20%20%23%20%20description%0A%20%20%23%7D%0A%7D" target="_blank">run in graphiql</a>
+<a href="http://localhost:2104/graphiql?query=%7B%0A%20%20auth(endpoint%3A%20%22http%3A%2F%2Fexample.url%22%2C%20user%3A%20%22group1%22%2C%20password%3A%20%22test123%22)%7B%0A%20%20%20%20user%0A%20%20%20%20token%0A%20%20%20%20isLoggedIn%0A%20%20%7D%2C%0A%20%20user(id%3A%20%22group10%22)%7B%0A%09%20%20processGraphs%2C%0A%20%20%20%20credits%2C%0A%20%20%20%20files%7B%0A%20%20%20%20%20%20size%2C%0A%20%20%20%20%20%20name%0A%20%20%20%20%7D%0A%20%20%20%20services%7B%0A%20%20%20%20%20%20service_args%2C%0A%20%20%20%20%20%20job_id%0A%20%20%20%20%7D%2C%0A%20%20%20%20jobs%7B%0A%20%20%20%20%20%20job_id%2C%0A%20%20%20%20%20%20submitted%2C%0A%20%20%20%20%20%20consumed_credits%0A%20%20%20%20%7D%0A%20%20%7D%0A%20%20capabilities%20%7B%0A%20%20%09api%2C%0A%20%20%20%20services%2C%0A%20%20%20%20formats%7B%0A%20%20%20%20%20%20default%2C%0A%20%20%20%20%20%20formats%0A%20%20%20%20%7D%0A%20%20%7D%2C%0A%20%20data(id%3A%20%22ASTER%2FAST_L1T_003%22)%7B%0A%20%20%20%20source%2C%0A%20%20%20%20description%2C%0A%20%20%20%20product_id%0A%20%20%7D%2C%0A%20%20%23this%20would%20query%20all%20data%0A%20%20%23data%7B%0A%20%20%23%20%20source%2C%0A%20%20%23%20%20description%2C%0A%20%20%23%20%20product_id%0A%20%20%23%7D%2C%0A%20%20processes(id%3A%20%22max_time%22)%20%7B%0A%20%20%20%20process_id%0A%20%20%20%20description%0A%20%20%7D%0A%20%20%23this%20would%20query%20all%20processes%0A%20%20%23processes%7B%0A%20%20%23%20%20process_id%0A%20%20%23%20%20description%0A%20%20%23%7D%0A%7D" target="_blank">run in graphiql</a>
 
 > __Note:__ Somehow you need to hit two times run to retrieve all of the data
 

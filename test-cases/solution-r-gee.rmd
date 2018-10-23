@@ -18,9 +18,10 @@ install_github(repo="Open-EO/openeo-r-client",ref="v0.2.2",dependencies=TRUE)
 library(openeo)
 ```
 
-Connecting to the openEO Earth Engine back-end. You may need to change the credentials:
+Connecting to the openEO Earth Engine back-end. You may need to change the credentials.
+Credentials for a demo server may be provided in the [openEO Earth Engine back-end repository](https://github.com/Open-EO/openeo-earthengine-driver).
 ```{r}
-gee.url = "http://giv-project8.uni-muenster.de"
+gee.url = "http://example.url"
 gee.pwd = "test123"
 gee.user = "groupX"
 con = connect(gee.url,user=gee.user,password = gee.pwd)
